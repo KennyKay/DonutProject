@@ -1,0 +1,17 @@
+<%= form_with(model: donut_topping) do |form| %>
+  <% if donut_topping.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(donut_topping.errors.count, "error") %> prohibited this donut_topping from being saved:</h2>
+
+      <ul>
+        <% donut_topping.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

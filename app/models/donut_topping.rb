@@ -1,0 +1,2 @@
+class DonutTopping < ApplicationRecord
+end

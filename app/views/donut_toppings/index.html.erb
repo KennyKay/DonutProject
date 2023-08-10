@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Donut toppings</h1>
+
+<div id="donut_toppings">
+  <% @donut_toppings.each do |donut_topping| %>
+    <%= render donut_topping %>
+    <p>
+      <%= link_to "Show this donut topping", donut_topping %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New donut topping", new_donut_topping_path %>
