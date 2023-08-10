@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_212911) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_10_231124) do
+  create_table "donut_order_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "donut_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donut_type_id"], name: "index_donut_order_items_on_donut_type_id"
+  end
+
+  create_table "donut_order_items_toppings", id: false, force: :cascade do |t|
+    t.integer "donut_order_items_id"
+    t.integer "donut_toppings_id"
+    t.index ["donut_order_items_id"], name: "index_donut_order_items_toppings_on_donut_order_items_id"
+    t.index ["donut_toppings_id"], name: "index_donut_order_items_toppings_on_donut_toppings_id"
+  end
+
   create_table "donut_toppings", force: :cascade do |t|
     t.string "name", null: false
     t.date "sold_out_until"
