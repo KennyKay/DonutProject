@@ -37,12 +37,4 @@ class DonutTypesControllerTest < ActionDispatch::IntegrationTest
     patch donut_type_url(@donut_type), params: { donut_type: { discontinued: @donut_type.discontinued, name: @donut_type.name, price: @donut_type.price, sold_out_until: @donut_type.sold_out_until } }
     assert_redirected_to donut_type_url(@donut_type)
   end
-
-  test "should destroy donut_type" do
-    assert_difference("DonutType.count", -1) do
-      delete donut_type_url(@donut_type)
-    end
-
-    assert_redirected_to donut_types_url
-  end
 end

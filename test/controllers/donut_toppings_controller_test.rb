@@ -37,12 +37,4 @@ class DonutToppingsControllerTest < ActionDispatch::IntegrationTest
     patch donut_topping_url(@donut_topping), params: { donut_topping: {  } }
     assert_redirected_to donut_topping_url(@donut_topping)
   end
-
-  test "should destroy donut_topping" do
-    assert_difference("DonutTopping.count", -1) do
-      delete donut_topping_url(@donut_topping)
-    end
-
-    assert_redirected_to donut_toppings_url
-  end
 end

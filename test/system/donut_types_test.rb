@@ -37,11 +37,4 @@ class DonutTypesTest < ApplicationSystemTestCase
     assert_text "Donut type was successfully updated"
     click_on "Back"
   end
-
-  test "should destroy Donut type" do
-    visit donut_type_url(@donut_type)
-    click_on "Destroy this donut type", match: :first
-
-    assert_text "Donut type was successfully destroyed"
-  end
 end

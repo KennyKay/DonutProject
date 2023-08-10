@@ -46,17 +46,6 @@ class DonutTypesController < ApplicationController
       end
     end
   end
-
-  # DELETE /donut_types/1 or /donut_types/1.json
-  def destroy
-    @donut_type.destroy
-
-    respond_to do |format|
-      format.html { redirect_to donut_types_url, notice: "Donut type was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_donut_type

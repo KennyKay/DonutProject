@@ -29,11 +29,4 @@ class DonutToppingsTest < ApplicationSystemTestCase
     assert_text "Donut topping was successfully updated"
     click_on "Back"
   end
-
-  test "should destroy Donut topping" do
-    visit donut_topping_url(@donut_topping)
-    click_on "Destroy this donut topping", match: :first
-
-    assert_text "Donut topping was successfully destroyed"
-  end
 end
