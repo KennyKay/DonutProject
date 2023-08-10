@@ -1,5 +1,5 @@
 class DonutTypesController < ApplicationController
-  before_action :set_donut_type, only: %i[ show edit update destroy ]
+  before_action :set_donut_type, only: %i[ show edit update ]
 
   # GET /donut_types or /donut_types.json
   def index
