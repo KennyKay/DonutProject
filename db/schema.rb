@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_202439) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_10_212911) do
+  create_table "donut_toppings", force: :cascade do |t|
+    t.string "name", null: false
+    t.date "sold_out_until"
+    t.boolean "discontinued", default: false, null: false
+    t.decimal "price", default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "donut_types", force: :cascade do |t|
     t.string "name", null: false
     t.date "sold_out_until"
