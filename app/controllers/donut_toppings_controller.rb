@@ -1,25 +1,20 @@
 class DonutToppingsController < ApplicationController
   before_action :set_donut_topping, only: %i[ show edit update ]
 
-  # GET /donut_toppings or /donut_toppings.json
   def index
     @donut_toppings = DonutTopping.all
   end
 
-  # GET /donut_toppings/1 or /donut_toppings/1.json
   def show
   end
 
-  # GET /donut_toppings/new
   def new
     @donut_topping = DonutTopping.new
   end
 
-  # GET /donut_toppings/1/edit
   def edit
   end
 
-  # POST /donut_toppings or /donut_toppings.json
   def create
     @donut_topping = DonutTopping.new(donut_topping_params)
 
@@ -34,7 +29,6 @@ class DonutToppingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /donut_toppings/1 or /donut_toppings/1.json
   def update
     respond_to do |format|
       if @donut_topping.update(donut_topping_params)
@@ -47,12 +41,10 @@ class DonutToppingsController < ApplicationController
     end
   end
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_donut_topping
       @donut_topping = DonutTopping.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def donut_topping_params
       params.fetch(:donut_topping, {})
     end
