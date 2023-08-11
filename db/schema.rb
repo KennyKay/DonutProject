@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_231124) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_000355) do
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "donut_order_items", force: :cascade do |t|
     t.integer "quantity"
     t.integer "donut_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.index ["customer_id"], name: "index_donut_order_items_on_customer_id"
     t.index ["donut_type_id"], name: "index_donut_order_items_on_donut_type_id"
   end
 
@@ -44,4 +53,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_231124) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "customers_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customers_id"], name: "index_orders_on_customers_id"
+  end
+
+  add_foreign_key "donut_order_items", "customers"
 end
