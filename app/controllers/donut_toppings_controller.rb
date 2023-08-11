@@ -46,6 +46,6 @@ class DonutToppingsController < ApplicationController
     end
 
     def donut_topping_params
-      params.fetch(:donut_topping, {})
+      params.permit(:donut_topping)
     end
 end
