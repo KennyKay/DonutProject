@@ -4,7 +4,7 @@ class DonutOrderItem < ApplicationRecord
   has_and_belongs_to_many :donut_toppings
   attribute :quantity, default: 1
 
-  def amount
+  def price
     (donut_type.price + donut_toppings.sum(:price)) * quantity
   end
 end
