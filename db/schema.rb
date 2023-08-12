@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_11_121826) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_122625) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "phone"
@@ -29,10 +29,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_121826) do
   end
 
   create_table "donut_order_items_toppings", id: false, force: :cascade do |t|
-    t.integer "donut_order_items_id"
-    t.integer "donut_toppings_id"
-    t.index ["donut_order_items_id"], name: "index_donut_order_items_toppings_on_donut_order_items_id"
-    t.index ["donut_toppings_id"], name: "index_donut_order_items_toppings_on_donut_toppings_id"
+    t.integer "donut_order_item_id"
+    t.integer "donut_topping_id"
+    t.index ["donut_order_item_id"], name: "index_donut_order_items_toppings_on_donut_order_item_id"
+    t.index ["donut_topping_id"], name: "index_donut_order_items_toppings_on_donut_topping_id"
   end
 
   create_table "donut_toppings", force: :cascade do |t|
@@ -54,11 +54,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_121826) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customers_id"
+    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
-    t.index ["customers_id"], name: "index_orders_on_customers_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   add_foreign_key "donut_order_items", "customers"
